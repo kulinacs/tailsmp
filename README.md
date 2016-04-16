@@ -1,2 +1,2 @@
 # tailsmp
-Tails
+HackDFW 2016
