@@ -1,5 +1,4 @@
 #!/bin/bash
-apt-get install cryptsetup
-cryptsetup luksOpen /dev/sdc1 profile
-mkdir /mnt/private
-mount -t ext4 /dev/mapper/profile /mnt/private
+sudo cryptsetup luksOpen /dev/sdc1 profile
+sudo mkdir /mnt/private
+sudo mount -t ext4 /dev/mapper/profile /mnt/private
