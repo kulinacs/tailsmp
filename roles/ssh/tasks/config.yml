@@ -1,0 +1,10 @@
+- name: Configuring sshd
+  become: yes
+  template:
+    src: sshd_config.j2
+    det: /etc/ssh/sshd_config
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart sshd

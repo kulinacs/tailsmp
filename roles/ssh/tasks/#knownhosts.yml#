@@ -1,0 +1,5 @@
+---
+
+- name: Adding known_host
+  become_user: {{ ssh_user }}
+  
