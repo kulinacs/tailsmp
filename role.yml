@@ -1,0 +1,5 @@
+---
+- hosts: 198.211.114.159
+  roles:
+    - nginx
+    - tor

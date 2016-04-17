@@ -1,0 +1,8 @@
+- name: Installing NGINX
+  become: yes
+  apt: pkg=nginx state=installed update_cache=true
+  notify:
+    - start nginx
+- name: Configuring NGINX Virtual Hosts
+  become: yes
+  template: src=hidden_service.j2 dest=/etc/nginx/sites-available/hidden_service
