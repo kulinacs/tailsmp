@@ -25,3 +25,9 @@
     owner: root
     group: root
     mode: "0644"
+  notify: restart tor
+- name: Display onion address
+  become: yes
+  command: cat /var/lib/tor/hidden_service/hostname
+  register: onion
+- debug: msg="{{ onion.stdout }}"
