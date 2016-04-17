@@ -1,5 +1,4 @@
 - name: Installing packages
-  become: yes
   apt:
     pkg=ufw
     state=installed

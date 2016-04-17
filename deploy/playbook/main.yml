@@ -17,6 +17,5 @@
   roles:
     - install-software
     - add-admin
-    - configure-sshd
     - nginx
     - tor

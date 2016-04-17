@@ -5,16 +5,15 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-echo "Installed Dependencies"
-apt-get install python-pip
-pip install nikola
-pip install ansible
+echo "Installing Dependencies"
+#apt-get update
+apt-get install ansible python-passlib sshpass
 
 echo "Copying tailsmp"
-cp bin/* /usr/local/bin
-chmod -R +rx /usr/local/bin
+cp bin/* /usr/local/bin/
+chmod -R 755 /usr/local/bin/
 
-mkdir /opt/ansible/
-cp playbook/* /opt/ansible
-chmod -R +rw /opt/ansible
+mkdir -p /opt/ansible/
+cp -r playbook/* /opt/ansible/
+chmod -R 777 /opt/ansible/
 

@@ -12,9 +12,3 @@
     groups=sudo,ssh
     append=yes
     password={{ admin_pass }}
-- name: Copying {{ admin_user }}'s key
-  authorized_key:
-    user={{ admin_user }}
-    key={{ item }}
-  with_file:
-    - "{{ admin_sshkey }}"

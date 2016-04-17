@@ -1,10 +1,8 @@
 - name: Installing NGINX
-  become: yes
   apt: pkg=nginx state=installed update_cache=false
   notify:
     - start nginx
 - name: Configuring NGINX Virtual Hosts
-  become: yes
   template:
     src: hidden_service.j2
     dest: /etc/nginx/sites-available/hidden_service
@@ -13,14 +11,11 @@
     group: root
     mode: "0644"
 - name: Removing default sites-enabled
-  become: yes
   file: path=/etc/nginx/sites-enabled/default state=absent
 - name: Creating new sites-enabled
-  become: yes
   file: src=/etc/nginx/sites-available/hidden_service dest=/etc/nginx/sites-enabled/hidden_service state=link
   notify: reload nginx
 - name: Launch site
-  become: yes
   copy:
     src={{ user_html }}
     dest="/var/www/html/"
