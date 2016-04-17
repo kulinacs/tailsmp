@@ -13,4 +13,4 @@ printf '\n%s\n\t%s\n\t%s\n\t%s' "Host $servername" "HostName $serverip" "User $u
 echo "Cleaning up Ansible hosts"
 cat ~/.ansible/hosts | head -n -2 > ~/.ansible/hosts
 echo "Adding $servername to your .ansible/hosts"
-printf '%s\n%s\n' "[$servername]" "$serverip" >> ~/.ansible/hosts
+printf '%s\n%s\n' "[$servername]" "$servername" >> ~/.ansible/hosts
