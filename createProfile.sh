@@ -10,13 +10,16 @@ sudo cryptsetup luksOpen /dev/sdc profile
 sudo mkfs.ext4 /dev/mapper/profile
 
 # mounts the card at /mnt/private
-mkdir /mnt/private
+if [ ! -d "/mnt/private" ]; then
+  sudo mkdir /mnt/private
+fi
 sudo mount -t ext4 /dev/mapper/profile /mnt/private
 sudo chown amnesia.amnesia /mnt/private
 
-# copies current home folder to the SD card
-cp -rP /home /mnt/private
+# copies current amnesia folder to the SD card
+cp -rP /home/amnesia /mnt/private
 
 # encrypts the SD card
 sudo umount -l /dev/mapper/profile
 sudo cryptsetup luksClose profile
+echo "Profile successfully saved onto encrypted SD card."
