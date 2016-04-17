@@ -1,0 +1,23 @@
+- name: Adding Tor Sources
+  become: yes
+  copy:
+    src: ../files/tor.list
+    dest: /etc/apt/sources.list.d/tor.list
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+#- name: Importing Tor GPG keys
+#  become: yes
+#  - shell: gpg --keyserver keys.gnupg.net --recv 886DDD89
+#    args:
+#      executable: /bin/bash
+#  - shell: gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
+#    args:
+#      executable: /bin/bash
+- name: Installing Tor Keyring
+  become: yes
+  apt: pkg=deb.torproject.org-keyring state=installed update_cache=true
+- name: Installing Tor
+  become: yes
+  apt: pkg=tor state=installed update_cache=false
