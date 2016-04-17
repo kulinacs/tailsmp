@@ -8,3 +8,13 @@
     group: root
     mode: "0644"
   notify: restart sshd
+- name: Patching sshd moduli
+  become: yes
+  copy:
+    src: ../files/moduli
+    det: /etc/ssh/moduli
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart sshd
