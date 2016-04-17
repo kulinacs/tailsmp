@@ -1,5 +1,4 @@
 # description: A Template for Virtual Host Configuration
-{
 ##
 # You should look at the following URL's in order to grasp a solid understanding
 # of Nginx configuration files in order to fully unleash the power of Nginx.
@@ -16,8 +15,8 @@
 # Default server configuration
 #
 server {
-	listen {{listen_port}} default_server;
-	listen [::]:{{listen_port}} default_server;
+	listen {{ listen_port }} default_server;
+	listen [::]:{{ listen_port }} default_server;
 
 	# SSL configuration
 	#
@@ -80,4 +79,3 @@ server {
 #		try_files $uri $uri/ =404;
 #	}
 #}
-}

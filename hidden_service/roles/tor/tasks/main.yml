@@ -16,3 +16,12 @@
 - name: Installing Tor
   become: yes
   apt: pkg=tor state=installed update_cache=false
+- name: Configuring torrc
+  become: yes
+  template:
+    src: torrc.j2
+    dest: /etc/tor/torrc
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
