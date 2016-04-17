@@ -7,5 +7,5 @@ sudo mount -t ext4 /dev/mapper/profile /mnt/private
 sudo chown -R amnesia.amnesia /mnt/private
 
 #saves home folder to SD card
-rm -rf /mnt/private/home
+rm -rf /mnt/private/amnesia
 cp /home/amnesia -rP /mnt/private
