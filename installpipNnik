@@ -1,4 +1,4 @@
 #!/bin/sh
 sudo apt-get install python-pip
 sudo pip install nikola
-
+sudo pip install python-digitalocean
