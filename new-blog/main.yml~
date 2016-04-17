@@ -1,0 +1,62 @@
+---
+- hosts: new-tailsmp
+  vars_prompt:
+    - name: "admin_user"
+      prompt: "Enter your username"
+      default: "amnesia"
+      private: no
+    - name: "admin_pass"
+      prompt: "Enter your desired user password"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+    - name: "admin_sshkey"
+      prompt: "Enter the path to your ssh public key"
+      private: no
+  remote_user: root
+  roles:
+    - install-software
+    - add-admin
+    - configure-sshd
+---
+- hosts: new-tailsmp
+  vars_prompt:
+    - name: "admin_user"
+      prompt: "Enter your username"
+      default: "amnesia"
+      private: no
+    - name: "admin_pass"
+      prompt: "Enter your desired user password"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+    - name: "admin_sshkey"
+      prompt: "Enter the path to your ssh public key"
+      private: no
+  remote_user: root
+  roles:
+    - install-software
+    - add-admin
+    - configure-sshd
+---
+- hosts: new-tailsmp
+  vars_prompt:
+    - name: "admin_user"
+      prompt: "Enter your username"
+      default: "amnesia"
+      private: no
+    - name: "admin_pass"
+      prompt: "Enter your desired user password"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+    - name: "admin_sshkey"
+      prompt: "Enter the path to your ssh public key"
+      private: no
+  remote_user: root
+  roles:
+    - install-software
+    - add-admin
+    - configure-sshd
+    - nginx
+    - tor
