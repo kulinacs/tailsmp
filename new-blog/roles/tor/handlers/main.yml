@@ -1,0 +1,3 @@
+- name: restart tor
+  become: yes
+  action: service name=tor state=restarted

@@ -1,0 +1,11 @@
+---
+- name: Updating software
+  become: yes
+  apt:
+    update_cache: no
+- name: Installing packages
+  become: yes
+  apt:
+    pkg=ufw
+    state=installed
+    update_cache=no
