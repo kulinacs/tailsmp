@@ -19,3 +19,8 @@
   become: yes
   file: src=/etc/nginx/sites-available/hidden_service dest=/etc/nginx/sites-enabled/hidden_service state=link
   notify: reload nginx
+- name: Launch site
+  become: yes
+  copy:
+    src={{ user_html }}
+    dest="/var/www/html/"
