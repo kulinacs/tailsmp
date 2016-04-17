@@ -5,7 +5,7 @@ if [ -z "$1" ]
 	exit
 fi
 
-mkdir -P "roles/$1/defaults"
+mkdir -p "roles/$1/defaults"
 mkdir "roles/$1/handlers"
 mkdir "roles/$1/meta"
 mkdir "roles/$1/tasks"
