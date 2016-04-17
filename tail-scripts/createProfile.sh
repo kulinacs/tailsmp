@@ -17,7 +17,7 @@ sudo mount -t ext4 /dev/mapper/profile /mnt/private
 sudo chown amnesia.amnesia /mnt/private
 
 # copies current amnesia folder to the SD card
-cp -rP /home/amnesia /mnt/private
+rsync -a --exclude 'Persistent' /mnt/private/amnesia /home/
 
 # encrypts the SD card
 sudo umount -l /dev/mapper/profile

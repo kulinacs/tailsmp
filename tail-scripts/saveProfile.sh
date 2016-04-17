@@ -15,7 +15,7 @@ sudo chown -R amnesia.amnesia /mnt/private
 
 #saves home folder to SD card
 rm -rf /mnt/private/amnesia
-cp /home/amnesia -rP /mnt/private
+rsync -a --exclude 'Persistent' /home/amnesia /mnt/private
 
 # encrypts the SD card
 sudo umount -l /dev/mapper/profile
