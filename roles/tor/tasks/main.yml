@@ -7,14 +7,9 @@
     owner: root
     group: root
     mode: "0644"
-#- name: Importing Tor GPG keys
-#  become: yes
-#  - shell: gpg --keyserver keys.gnupg.net --recv 886DDD89
-#    args:
-#      executable: /bin/bash
-#  - shell: gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
-#    args:
-#      executable: /bin/bash
+- name: Importing Tor GPG keys
+  become: yes
+  apt_key: keyserver=keys.gnupg.net id=886DDD89
 - name: Installing Tor Keyring
   become: yes
   apt: pkg=deb.torproject.org-keyring state=installed update_cache=true
