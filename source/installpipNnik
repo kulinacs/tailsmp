@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 sudo apt-get install python-pip
 sudo pip install nikola
+sudo pip install ansible

@@ -1,0 +1,6 @@
+- name: start nginx
+  service: name=nginx state=started
+  
+- name: reload nginx
+  become: yes
+  action: service name=nginx state=restarted

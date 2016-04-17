@@ -1,0 +1,4 @@
+- name: "Allowing SSH Traffic"
+  ufw: rule=allow port=22
+- name: "Turning on firewall"
+  ufw: state=enabled policy=deny

@@ -1,0 +1,34 @@
+- name: Adding Tor Sources
+  become: yes
+  copy:
+    src: ../files/tor.list
+    dest: /etc/apt/sources.list.d/tor.list
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+- name: Importing Tor GPG keys
+  become: yes
+  apt_key: keyserver=keys.gnupg.net id=886DDD89
+- name: Installing Tor Keyring
+  become: yes
+  apt: pkg=deb.torproject.org-keyring state=installed update_cache=true
+- name: Installing Tor
+  become: yes
+  apt: pkg=tor state=installed update_cache=false
+- name: Configuring torrc
+  become: yes
+  template:
+    src: torrc.j2
+    dest: /etc/tor/torrc
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+- name: Restarting Tor
+  action: service name=tor state=restarted
+- name: Display onion address
+  become: yes
+  command: cat /var/lib/tor/hidden_service/hostname
+  register: onion
+- debug: msg="{{ onion.stdout }}"
