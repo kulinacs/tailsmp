@@ -1,0 +1,10 @@
+# SSH User
+ssh_user: "root"
+
+# SSH General
+ssh_port: 22
+
+# SSH Authentication
+ssh_permit_root_login: 'no'
+ssh_pubkey_authentication: 'yes'
+ssh_password_authentication: 'no'

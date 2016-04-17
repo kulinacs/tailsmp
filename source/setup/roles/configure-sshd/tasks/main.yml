@@ -1,0 +1,20 @@
+- name: Configuring sshd
+  become: yes
+  template:
+    src: sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart sshd
+- name: Patching sshd moduli
+  become: yes
+  copy:
+    src: ../files/moduli
+    dest: /etc/ssh/moduli
+    backup: yes
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart sshd

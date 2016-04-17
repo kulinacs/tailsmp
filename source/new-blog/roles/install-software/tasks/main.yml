@@ -1,0 +1,6 @@
+- name: Installing packages
+  become: yes
+  apt:
+    pkg=ufw
+    state=installed
+    update_cache=no
