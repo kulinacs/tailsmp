@@ -17,4 +17,4 @@
     user={{ admin_user }}
     key={{ item }}
   with_file:
-    - ../../../ssh_keys/{{ admin_sshkey }}
+    - "{{ admin_sshkey }}"

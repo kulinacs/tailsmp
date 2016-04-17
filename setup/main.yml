@@ -1,12 +1,12 @@
 ---
-- hosts: tailsmp2
+- hosts: new-tailsmp
   vars_prompt:
     - name: "admin_user"
       prompt: "Enter your username"
       default: "amnesia"
       private: no
     - name: "admin_pass"
-      prompt: "Enter your password"
+      prompt: "Enter your desired user password"
       private: yes
       encrypt: "sha512_crypt"
       confirm: yes

@@ -1,5 +1,13 @@
 ---
 - name: Updating software
+  become: yes
   apt:
     update_cache: yes
     upgrade: "yes"
+- name: Installing packages
+  become: yes
+  apt:
+    pkg={{ item }}
+    state=installed
+    update_cache=no
+  with_items: "{{ packages }}"
